@@ -2,19 +2,12 @@
     <Page>
         <ActionBar title="Welcome to NativeScript-Vue!"/>
         <StackLayout columns="*" rows="*">
-            <Label class="message" :text="msg" col="0" row="0"/>
-            <Button 
-                text="Change message" 
-                backgroundColor="#41b883"
-                color="#ffffff"
-                @tap="changeMessage('Hello {N} Vue!')"
-            />
-            <Button 
-                text="Original message" 
-                backgroundColor="#41b883"
-                color="#ffffff"
-                @tap="changeMessage('Hello World!')"
-            />
+            <Image src="~/assets/images/NativeScript-Vue.png" :style="{ marginTop: '20' }" />
+            <ListView for="i in t">
+                <v-template>
+                    <Label :text="i" :style="{ padding: '0 20pt' }"/>
+                </v-template>
+            </ListView>
         </StackLayout>
     </Page>
 </template>
@@ -22,7 +15,8 @@
 <script >
   export default {
     data: () => ({
-        msg: 'Hello World!'
+        msg: 'Hello World!',
+        t: [1, 2, 3, 4]
     }),
 
     methods: {
