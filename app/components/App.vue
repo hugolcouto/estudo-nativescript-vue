@@ -1,18 +1,34 @@
 <template>
     <Page>
         <ActionBar title="Welcome to NativeScript-Vue!"/>
-        <GridLayout columns="*" rows="*">
+        <StackLayout columns="*" rows="*">
             <Label class="message" :text="msg" col="0" row="0"/>
-        </GridLayout>
+            <Button 
+                text="Change message" 
+                backgroundColor="#41b883"
+                color="#ffffff"
+                @tap="changeMessage('Hello {N} Vue!')"
+            />
+            <Button 
+                text="Original message" 
+                backgroundColor="#41b883"
+                color="#ffffff"
+                @tap="changeMessage('Hello World!')"
+            />
+        </StackLayout>
     </Page>
 </template>
 
 <script >
   export default {
-    data() {
-      return {
+    data: () => ({
         msg: 'Hello World!'
-      }
+    }),
+
+    methods: {
+        changeMessage(message) {
+            this.msg = message;
+        }
     }
   }
 </script>
