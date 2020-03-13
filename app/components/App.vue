@@ -2,14 +2,21 @@
     <Page>
         <custom-actionbar title="Olá mundo"/>
         <StackLayout columns="*" rows="*">
-            <Image 
-                src="~/assets/images/NativeScript-Vue.png"
-                :style="{ margin: '20 0' }"
-                width="60%"
+            <SVGImage 
+                src="~/assets/images/guntertux.svg"
+                height="180"
             />
            <Button
                 text="Hello World page"
                 @tap="gotoHelloWorldPage"
+                color="#fff"
+                backgroundColor="#41b883"
+           />
+            <Button
+                text="Modal page"
+                @tap="gotoModalPage"
+                color="#fff"
+                backgroundColor="#41b883"
            />
         </StackLayout>
     </Page>
@@ -17,6 +24,7 @@
 
 <script>
     import HelloWorld from './views/HelloWorld';
+    import ModalExample from './views/ModalExample';
     export default {
         methods: {
             gotoHelloWorldPage() {
@@ -25,6 +33,9 @@
                         titleBar: 'Exemplo de navegação'
                     }
                 })
+            },
+            gotoModalPage() {
+                this.$showModal(ModalExample)
             }
         }
     }

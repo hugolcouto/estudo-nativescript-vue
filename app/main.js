@@ -1,8 +1,11 @@
 import Vue from 'nativescript-vue'
 import App from './components/App'
 
+
 import store from './store'
 import VueDevtools from 'nativescript-vue-devtools'
+
+Vue.registerElement('SVGImage', () => require('@teammaestro/nativescript-svg').SVGImage);
 
 import CustomActionbar from './components/components/Actionbar.vue';
 Vue.component('custom-actionbar', CustomActionbar);
